@@ -30,10 +30,10 @@ var Reveal = (function(){
 			maxScale: 1.0,
 
 			// Display controls in the bottom right corner
-			controls: true,
+			controls: false,
 
 			// Display a presentation progress bar
-			progress: true,
+			progress: false,
 
 			// Push each slide change to the browser history
 			history: false,

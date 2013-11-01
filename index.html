@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Are we There Yet? - Anselm Hannemann</title>
+		<title>5 Things You Need for Responsive Development - Anselm Hannemann</title>
 
 		<meta name="description" content="A talk about the missing features in responsive webdesign and how to solve that.">
 		<meta name="author" content="Anselm Hannemann">
@@ -26,7 +26,7 @@
 		</script>
 
 		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
+			<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
 
@@ -36,10 +36,9 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<!-- data-background="#019875" | driving-cat: data-background="img/current-situation.gif" -->
 				<section data-background="#019875" data-transition="zoom">
 					<h1>Are we There yet?</h1>
-					<h3><s>Pro</s>gressive Responsive Design</h3>
+					<h3>5 Things You <s>Need</s> want for Responsive Development</h3>
 					<p>
 						<small>by <a href="http://helloanselm.com/">Anselm Hannemann</a> &mdash; <a href="http://twitter.com/helloanselm">@helloanselm</a></small>
 					</p>
@@ -322,13 +321,22 @@ img, video {
 					<section>
 						<h1>srcset <s>ships tomorrow!</s></h1>
 						<pre><code data-trim>
-<img src="normal-image.jpg" srcset="highres-image.jpg 2x">
+<img src="normal-image.jpg" srcset="normal-image.jpg 1x, highres-image.jpg 2x">
 						</code></pre>
-						<p>Supported in WebKit Nightly already; <br><s>Blink to follow soon.</s></p>
+						<p>Supported in WebKit Nightly (right now); <br><s>Blink to follow soon.</s></p>
 					</section>
 					
 					<section>
 						<h1>Then, there's <code>&lt;picture&gt;</code></h1>
+						<pre class="fragment"><code data-trim>
+<picture>
+    <source srcset="small.jpg, small-highres.jpg 2x" media="(max-width: 35em)">
+    <source src="medium.jpg" media="(max-width: 42em)">
+    <source srcset="large.jpg 1x, large-highres.jpg 2x" media="(min-width: 42.1em)">
+   	<img src="small.jpg" alt="alt text">
+   	<p>Alternative text here</p>
+</picture>							
+						</code></pre>
 					</section>
 					
 					<section>
@@ -360,6 +368,16 @@ img, video {
 					</section>
 					
 					<section>
+						<h1>src-{N}</h1>
+						<pre><code data-trim>
+<img src-1="(max-width: 400px) pic-small.jpg"
+       src-2="(max-width: 1000px) pic-medium.jpg"
+       src="pic-large.jpg"
+       alt="Obama talking to a soldier in hospital scrubs.">
+						</code></pre>
+					</section>
+					
+					<section data-background="img/current-situation.gif">
 						<h1>It's outta control</h1>
 						<p>Even RICG is now partly on that train of <code>srcN</code>, but yet no browser vendor took any step into one direction.</p> 
 					</section>
@@ -531,8 +549,8 @@ img, video {
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
-				progress: true,
+				controls: false,
+				progress: false,
 				history: true,
 				center: true,
 				width: 1024,
